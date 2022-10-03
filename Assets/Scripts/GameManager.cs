@@ -6,25 +6,13 @@ public class GameManager : MonoSingleton<GameManager>
 {
     //oyunun tüm prefeblerinin ve oyunun hangi safhasýnda olduðu deðeri burada dönülür
 
-    //Bools
-    public bool startGame;
-    public bool inPlacement;
-    public bool inMerge;
-    public bool inFight;
-    public bool inMarket;
-    public bool inFail;
-    public bool inFinish;
-    public bool inGameFinish;
 
-
-    public int level;
-    public int money, addedMoney;
+    public int money;
     public int vibration;
     public int sound;
 
     private void Start()
     {
-        startGame = true;
 
         if (PlayerPrefs.HasKey("money"))
         {
@@ -33,15 +21,6 @@ public class GameManager : MonoSingleton<GameManager>
         else
         {
             PlayerPrefs.SetInt("money", 0);
-        }
-
-        if (PlayerPrefs.HasKey("level"))
-        {
-            level = PlayerPrefs.GetInt("level");
-        }
-        else
-        {
-            PlayerPrefs.SetInt("level", 1);
         }
 
         if (PlayerPrefs.HasKey("vibration"))
@@ -61,14 +40,8 @@ public class GameManager : MonoSingleton<GameManager>
         {
             PlayerPrefs.SetInt("sound", 1);
         }
-
-
     }
 
-    public void SetLevel()
-    {
-        PlayerPrefs.SetInt("level", level);
-    }
 
     public void SetMoney()
     {
